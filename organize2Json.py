@@ -9,7 +9,7 @@ mapping_file = 'label_mapping.json'
 # Initialize an empty list to store all file data
 file_data = []
 label_mapping = {}
-label_counter = 0
+label_counter = 0.0
 
 # Iterate over all C++ files in the input directory
 for root, dirs, files in os.walk(input_directory):
