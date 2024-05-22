@@ -8,7 +8,7 @@ input_directory = 'sliced_files'
 
 # Load CodeBERT model and tokenizer
 tokenizer = RobertaTokenizer.from_pretrained("microsoft/codebert-base")
-model = RobertaForSequenceClassification.from_pretrained("path/to/your/sdc_model")
+model = RobertaForSequenceClassification.from_pretrained("microsoft/codebert-base")
 
 # Function to predict SDC rate using CodeBERT
 def predict_sdc_rate(source_code):
