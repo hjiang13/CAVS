@@ -9,14 +9,10 @@ input_directory = 'sliced_files'
 # Load CodeBERT model and tokenizer
 output_dir = "../CODEBERT-REGRESSION/code/BERTRegression/checkpoint-best-acc/model.bin"
 tokenizer = RobertaTokenizer.from_pretrained("microsoft/codebert-base")
-<<<<<<< HEAD
 # Create a configuration object for the model
 config = RobertaConfig.from_pretrained("microsoft/codebert-base")
 model = RobertaForSequenceClassification(config)
 model =model.load_state_dict(torch.load(output_dir))
-=======
-model = RobertaForSequenceClassification.from_pretrained("../CODEBERT-REGRESSION/code/BERTRegression/checkpoint-best-acc")
->>>>>>> ada65c02e6aed6dd94ce7590fa006ab5dff1dbd7
 
 # Function to predict SDC rate using CodeBERT
 def predict_sdc_rate(source_code):
