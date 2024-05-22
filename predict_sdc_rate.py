@@ -7,12 +7,12 @@ from transformers import RobertaTokenizer, RobertaForSequenceClassification, Rob
 input_directory = 'sliced_files'
 
 # Load CodeBERT model and tokenizer
-output_dir = "../CODEBERT-REGRESSION/code/BERTRegression/checkpoint-best-acc/model.bin"
+model_path = "../CODEBERT-REGRESSION/code/BERTRegression/checkpoint-best-acc/model.bin"
 tokenizer = RobertaTokenizer.from_pretrained("microsoft/codebert-base")
 # Create a configuration object for the model
 config = RobertaConfig.from_pretrained("microsoft/codebert-base")
 model = RobertaForSequenceClassification(config)
-model =model.load_state_dict(torch.load(output_dir))
+model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
 
 # Function to predict SDC rate using CodeBERT
 def predict_sdc_rate(source_code):
