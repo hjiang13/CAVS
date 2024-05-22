@@ -1,14 +1,18 @@
 import os
 import pandas as pd
 import torch
-from transformers import RobertaTokenizer, RobertaForSequenceClassification
+from transformers import RobertaTokenizer, RobertaForSequenceClassification, RobertaConfig
 
 # Directory containing the sliced C++ files
 input_directory = 'sliced_files'
 
 # Load CodeBERT model and tokenizer
+output_dir = "../CODEBERT-REGRESSION/code/BERTRegression/checkpoint-best-acc/model.bin"
 tokenizer = RobertaTokenizer.from_pretrained("microsoft/codebert-base")
-model = RobertaForSequenceClassification.from_pretrained("../CODEBERT-REGRESSION/code/BERTRegression/checkpoint-best-acc/model.bin")
+# Create a configuration object for the model
+config = RobertaConfig.from_pretrained("microsoft/codebert-base")
+model = RobertaForSequenceClassification(config)
+model =model.load_state_dict(torch.load(output_dir))
 
 # Function to predict SDC rate using CodeBERT
 def predict_sdc_rate(source_code):
