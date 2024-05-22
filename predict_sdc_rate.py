@@ -83,7 +83,7 @@ tokenizer = RobertaTokenizer.from_pretrained("neulab/codebert-cpp")
 
 #train_data, eval_data = train_test_split(data, test_size=0.1)
 train_dataset = SentimentDataset(train_data['code'].to_numpy(), train_data['label'].to_numpy(), tokenizer)
-eval_dataset = SentimentDataset(eval_data['code'].to_numpy(), eval_data['label'].to_numpy(), tokenizer)
+eval_dataset = SentimentDataset(eval_data['code'].to_numpy(), int(eval_data['label'].to_numpy()), tokenizer)
 
 train_loader = DataLoader(train_dataset, batch_size=8, shuffle=True)
 eval_loader = DataLoader(eval_dataset, batch_size=1)
