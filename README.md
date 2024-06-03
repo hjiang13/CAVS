@@ -1,2 +1,2 @@
 # CAVS
-CAVS: Conterfactual Analyzation of Vulnerable Sections to soft errors in HPC applications
+CAVS: Counterfactual Analyzation of Vulnerable Sections to soft errors in HPC applications
